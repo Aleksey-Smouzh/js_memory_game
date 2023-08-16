@@ -5,83 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
+
     <title>Mamory Game</title>
   </head>
   <body>
     <div class="container">
       <h2>Mamory Game</h2>
       <div class="game"></div>
-      <button class="resset" onclick="window.location.reload()">
+      <button class="resset" onclick="window.location.reload();">
         Resset Game
       </button>
     </div>
 
-    <script>
-      const emojis = [
-        "😀",
-        "😀",
-        "😂",
-        "😂",
-        "🙃",
-        "🙃",
-        "🥰",
-        "🥰",
-        "😋",
-        "😋",
-        "🥲",
-        "🥲",
-        "🤫",
-        "🤫",
-        "🤡",
-        "🤡",
-      ];
-      let shuf_emojis = emojis.sort(() => (Math.random() > 0.5 ? 2 : -1));
-      for (let i = 0; i < emojis.length; i++) {
-        let box = document.createElement("div");
-        box.className = "item";
-        box.innerHTML = shuf_emojis[i];
-
-        box.onclick = function () {
-          this.classList.add("boxOpen");
-          setTimeout(function () {
-            if (document.querySelectorAll(".boxOpen").length > 1) {
-              if (
-                document.querySelectorAll(".boxOpen")[0].innerHTML ==
-                document.querySelectorAll(".boxOpen")[1].innerHTML
-              ) {
-                document
-                  .querySelectorAll(".boxOpen")[0]
-                  .classList.add("boxMatch");
-                document
-                  .querySelectorAll(".boxOpen")[1]
-                  .classList.add("boxMatch");
-
-                document
-                  .querySelectorAll(".boxOpen")[1]
-                  .classList.remove("boxMatch");
-                document
-                  .querySelectorAll(".boxOpen")[0]
-                  .classList.remove("boxMatch");
-
-                if (
-                  document.querySelectorAll(".boxMatch").length == emojis.length
-                ) {
-                  alert("win");
-                }
-              } else {
-                 document.querySelectorAll(".boxOpen")[1]
-                  .classList.remove("boxMatch");
-                 document
-                  .querySelectorAll(".boxOpen")[0]
-                  .classList.remove("boxMatch");
-
-              }
-            }
-          }, 500);
-        };
-
-        document.querySelector(".game").appendChild(box);
-      }
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
